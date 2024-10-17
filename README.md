@@ -15,14 +15,13 @@ The Finance Tracker Application is a comprehensive tool designed to help users m
 ## Technologies Used
 
 - **Frontend:** React
-- **Backend:** Node.js
+- **Backend:** Node.js, Express.js
 - **Database:** MongoDB
-- **Face Verification:** [Face Recognition Library/Service Name]
-- **Other Libraries:** [List any other libraries or frameworks used]
+- **Face Verification:** Face-api.js
 
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/finance-tracker.git
+   git clone https://github.com/raviverma199/finance-tracker.git
    cd finance-tracker
