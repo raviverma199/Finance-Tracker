@@ -14,4 +14,23 @@ function CreateToken(userId) {
   }
 }
 
+
+/**
+ * 
+ * -----------------------  Auth handler for Exisitng Token -----------------------
+ * 
+ */
+
+function isTokenValid (Token, secretkey) {
+  try {
+
+    jwt.verify(Token, secretkey)
+
+    return true
+    
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 module.exports = { CreateToken };
