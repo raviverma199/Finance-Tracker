@@ -3,10 +3,12 @@ import { useState } from "react";
 import "../components/css/login.css";
 // import axios from "axios";
 import apicall from "../services/apicall";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const [Data, SetData] = useState({ email: "", password: "", username: "" });
+  const navigate = useNavigate();
 
   //  --------------------- function for handling value in input -----------------------------
   const handleInput = (e) => {
@@ -38,15 +40,17 @@ export default function Login() {
 
       if (response.success) {
         if (isLogin) {
-          alert('login successfully')
+          alert("login successfully");
+          navigate("/dashboard");
         } else {
+          setIsLogin(false);
           toggleForm();
         }
       } else {
         alert("Issue to Create the User");
       }
     } catch (error) {
-      alert('something went wrong')
+      alert("something went wrong");
     }
   };
 

@@ -1,0 +1,51 @@
+.dashboard-container {
+  background-color: #1c1c1e; /* Dark background */
+  color: #f5f5f7; /* Light text */
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dashboard-header {
+  background-color: #2c2c2e; /* Slightly lighter than the main background */
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  color: #f5f5f7; /* Light text */
+}
+
+.dashboard-button {
+  background-color: #f5f5f7; /* Light button */
+  color: #1c1c1e; /* Dark text */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dashboard-button:hover {
+  background-color: #e5e5e7;
+}
+
+.dashboard-section {
+  background-color: #2c2c2e; /* Section background */
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.dashboard-section-title {
+  color: #f5f5f7; /* Section title text */
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.dashboard-placeholder-text {
+  color: #a5a5a7; /* Grey text for placeholder */
+}
