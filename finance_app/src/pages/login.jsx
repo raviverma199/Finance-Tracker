@@ -36,7 +36,9 @@ export default function Login() {
         ? { email: Data.email, password: Data.password }
         : Data;
 
-      const response = await apicall("POST", EndPoint, requestData);
+      const response = await apicall("POST", EndPoint, requestData, { credentials: 'include'});
+
+      console.log(response.token)
 
       if (response.success) {
         if (isLogin) {

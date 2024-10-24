@@ -19,6 +19,7 @@ const apiCall = async (method, url, data = null, headers = {}) => {
       url,
       data,
       headers,
+      withCredentials: true
     });
 
     return response.data;

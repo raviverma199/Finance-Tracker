@@ -1,7 +1,10 @@
 import Login from "./pages/login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
-import IncomeTracker from "./pages/income";
+import NewIncomeTracker from "./pages/income";
+import Expense from "./pages/expense";
+import Saving from "./pages/saving";
+
 
 function App() {
   return (
@@ -10,7 +13,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/income" element={<IncomeTracker/>} />
+          <Route path="/income" element={<NewIncomeTracker/>} />
+          <Route path="/expense" element={<Expense/>} />
+          <Route path="/saving" element={<Saving/>} />
         </Routes>
       </Router>{" "}
     </>
