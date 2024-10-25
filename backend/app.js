@@ -8,7 +8,13 @@ const MainRoute = require('./routes/route')
 // const globalErrorhandler = require('./utilities/errorhandler')
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
+
+
+
 app.use('/', MainRoute)
 // app.use(globalErrorhandler)
 

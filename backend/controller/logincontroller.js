@@ -62,7 +62,12 @@ exports.LoginController = async (req, res, next) => {
         .json({ msg: "Password is incorrect", success: false });
     }
 
-    const token = CreateToken(user.id);
+    const token = CreateToken(user);
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      sameSite: "Strict", // Helps mitigate CSRF
+    });
 
     return res.status(200).json({
       msg: "Login successful",

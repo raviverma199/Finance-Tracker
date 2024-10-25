@@ -14,23 +14,25 @@ function CreateToken(userId) {
   }
 }
 
-
 /**
- * 
+ *
  * -----------------------  Auth handler for Exisitng Token -----------------------
- * 
+ *
  */
 
-function isTokenValid (Token, secretkey) {
-  try {
-
-    jwt.verify(Token, secretkey)
-
-    return true
-    
-  } catch (error) {
-    throw new Error(error)
+const authenticateJWT = (req, res, next) => {
+  const token = req.cookies.token;
+  if (!token) {
+    return res.sendStatus(403);
   }
-}
 
-module.exports = { CreateToken };
+  jwt.verify(token, 'RAvi#@$#@@#@@$#$', (err, user) => {
+    if (err) {
+      return res.sendStatus(403);
+    }
+    req.user = user;
+    next();
+  });
+};
+
+module.exports = { CreateToken, authenticateJWT };
