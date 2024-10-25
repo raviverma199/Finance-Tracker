@@ -4,6 +4,8 @@ import "../components/css/login.css";
 // import axios from "axios";
 import apicall from "../services/apicall";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
@@ -38,22 +40,46 @@ export default function Login() {
 
       const response = await apicall("POST", EndPoint, requestData, { credentials: 'include'});
 
-      console.log(response.token)
-
       if (response.success) {
         if (isLogin) {
-          alert("login successfully");
-          navigate("/dashboard");
+          Swal.fire({
+            title: 'Login Successful!',
+            text: 'You have successfully logged in.',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1000,
+            willClose: () => {
+              navigate("/dashboard");
+            }
+          });
+          
         } else {
-          setIsLogin(false);
-          toggleForm();
+          Swal.fire({
+            title: 'User Created!',
+            text: 'Account created successfully. You can now log in.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+          }).then(() => {
+            setIsLogin(false);
+            toggleForm();
+          });
         }
       } else {
-        alert("Issue to Create the User");
+        Swal.fire({
+          title: 'Error!',
+          text: 'There was an issue creating the user.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
       }
     } catch (error) {
-      alert("something went wrong");
-    }
+      Swal.fire({
+        title: 'Oops...',
+        text: 'Invalid Credentials !!',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
+        }
   };
 
   return (

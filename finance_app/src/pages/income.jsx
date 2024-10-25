@@ -3,7 +3,7 @@ import "../components/css/IncomeTracker.css";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend } from 'recharts';
-
+import apiCall from "../services/apicall";
 
 const NavLinks = styled.div`
   display: flex;
@@ -68,7 +68,7 @@ const NewIncomeTracker = () => {
     });
   };
 
-  const addIncome = (e) => {
+  const addIncome = async(e) => {
     e.preventDefault();
     setIncomeEntries([...incomeEntries, formData]);
     setFormData({
@@ -79,7 +79,21 @@ const NewIncomeTracker = () => {
       description: "",
       isRecurring: false,
     });
+
+
+    console.log(formData, 'This is the form Data')
+    let EndPoint = "/api/createincome"
+
+    const requestData = formData;
+
+    const response = await apiCall("POST", EndPoint, requestData);
+
   };
+
+
+
+
+
 
   return (
     <div className="income-tracker-container">
