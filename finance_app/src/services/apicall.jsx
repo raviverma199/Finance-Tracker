@@ -13,22 +13,22 @@ const axiosInstance = axios.create({
 
 const apiCall = async (method, url, data = null, headers = {}) => {
   try {
-
     const response = await axiosInstance({
       method,
       url,
       data,
       headers,
-      withCredentials: true
+      withCredentials: true,
     });
 
     return response.data;
   } catch (error) {
-    console.error("API call error:",error.response ? error.response.data : error.message);
+    console.error(
+      "API call error:",
+      error.response ? error.response.data : error.message
+    );
     throw error;
   }
 };
 
-
-
-export default apiCall
+export default apiCall;
