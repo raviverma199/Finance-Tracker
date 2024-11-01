@@ -26,7 +26,7 @@ const authenticateJWT = (req, res, next) => {
     return res.sendStatus(403);
   }
 
-  jwt.verify(token, 'RAvi#@$#@@#@@$#$', (err, user) => {
+  jwt.verify(token, "RAvi#@$#@@#@@$#$", (err, user) => {
     if (err) {
       return res.sendStatus(403);
     }
